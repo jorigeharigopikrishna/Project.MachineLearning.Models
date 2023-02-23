@@ -5,10 +5,10 @@ from sklearn.linear_model import LinearRegression
 # Step-1: Prepare data
 # a. Read data
 df_object = pandas_package.read_csv("../../../datasets/regression/linear_regression/canada_per_capita_income.csv")
-x_axis_data = df_object["year"]
-y_axis_data = df_object["per capita income (US$)"]
 # b. Check for any NaN values in dataframe
 any_nan_columns = df_object.isna().sum()    # sum() function on boolean index array will return columns along with its count of NaN values for each column
+x_axis_data = df_object["year"]
+y_axis_data = df_object["per capita income (US$)"]
 # c. Prepare data used to predict
 df_predict_2017_2023 = pandas_package.DataFrame([
     {"year": "2017"},
@@ -46,7 +46,7 @@ predict_2023 = linear_regression_model_object.predict([[2023]])
 
 # b. Predict range of values
 predict_2017_to_2023 = linear_regression_model_object.predict(df_predict_2017_2023)
-df_predict_2017_2023["per capita income (US$)"] = predict_2017_to_2023
+df_predict_2017_2023["per capita income (US$)"] = predict_2017_to_2023  # Create a new column with predicted values.
 
 # c. Verify the model result using normal maths i.e, y = mx+b
 predict_2023_using_maths = slope*2023 + intercept
