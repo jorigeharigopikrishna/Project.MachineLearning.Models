@@ -36,8 +36,7 @@ predict_3400 = linear_regression_model_object.predict([[3400]])
 predict_prices = linear_regression_model_object.predict(df_predict_prices)
 
 # Step-5: Verify the accuracy of the model using score() method
-# model_accuracy = linear_regression_model_object.score(df_predict_2017_2023, predict_2017_to_2023)
-# print(model_accuracy)
+model_accuracy = linear_regression_model_object.score(df_predict_prices, predict_prices)
 
 # Step-6: Save trained model
 # As pickle file using python pickle module.

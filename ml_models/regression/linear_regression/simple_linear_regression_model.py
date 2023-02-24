@@ -52,8 +52,7 @@ df_predict_2017_2023["per capita income (US$)"] = predict_2017_to_2023  # Create
 predict_2023_using_maths = slope*2023 + intercept
 
 # Step-6: Verify the accuracy of the model using score() method
-#model_accuracy = linear_regression_model_object.score(df_predict_2017_2023, predict_2017_to_2023)
-#print(model_accuracy)
+model_accuracy = linear_regression_model_object.score(df_predict_2017_2023[["year"]], predict_2017_to_2023)
 
 # Step-7: Perform other steps like exporting to new csv file.
 result_df = pandas_package.concat([df_object, df_predict_2017_2023], ignore_index=True)

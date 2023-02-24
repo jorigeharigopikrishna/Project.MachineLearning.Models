@@ -48,14 +48,12 @@ predict_12_10_10 = linear_regression_model_object.predict([[12, 10, 10]])
 # b. Predict range of values
 predict_2_9_6_to_12_10_10 = linear_regression_model_object.predict(df_predict_future_salaries)
 df_predict_future_salaries["salary($)"] = predict_2_9_6_to_12_10_10  # Create a new column with predicted values.
-print(df_predict_future_salaries)
 
 # c. Verify the model result using normal maths i.e, y = m1x1 + m2x2 + m3x3 + b
 predict_2_9_6_using_maths = slopes[0] * 2 + slopes[1] * 9 + slopes[2] * 6 + intercept
 
 # Step-6: Verify the accuracy of the model using score() method
-# model_accuracy = linear_regression_model_object.score(df_predict_future_salaries, predict_2_9_6_to_12_10_10)
-# print(model_accuracy)
+model_accuracy = linear_regression_model_object.score(df_predict_future_salaries[["experience", "test_score(out of 10)", "interview_score(out of 10)"]], predict_2_9_6_to_12_10_10)
 
 # Step-7: Perform other steps like exporting to new csv file.
 # result_df = pandas_package.concat([df_object, df_predict_future_salaries], ignore_index=True)
