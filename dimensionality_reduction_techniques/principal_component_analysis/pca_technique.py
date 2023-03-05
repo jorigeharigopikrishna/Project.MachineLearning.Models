@@ -29,12 +29,15 @@ X_scaled_train, X_scaled_test, y_scaled_train, y_scaled_test = train_test_split(
 lr_model = LogisticRegression()
 lr_model.fit(X_train, y_train)
 lr_model_score = lr_model.score(X_test, y_test)
+lr_model_train_score = lr_model.score(X_train, y_train)
 
 # LogisticRegression using scaled x and y axis data
 lr_model_scaled = LogisticRegression()
 lr_model_scaled.fit(X_scaled_train, y_scaled_train)
 lr_model_scaled_score = lr_model_scaled.score(X_scaled_test, y_scaled_test)
+lr_model_scaled_train_score = lr_model_scaled.score(X_scaled_train, y_scaled_train)
 print(f"Original: Without scaling score {lr_model_score} and With scaling score {lr_model_scaled_score}")
+print(f"Original: Without scaling Train score {lr_model_score} and With scaling Train score {lr_model_scaled_score}")
 
 # PCA dataset with original x axis data
 pca_object = PCA(0.95)  # Extract 95% of useful information from original features
@@ -55,9 +58,12 @@ X_scaled_pca_train, X_scaled_pca_test, y_scaled_pca_train, y_scaled_pca_test = t
 lr_model_pca = LogisticRegression()
 lr_model_pca.fit(X_pca_train, y_pca_train)
 lr_model_pca_score = lr_model_pca.score(X_pca_test, y_pca_test)
+lr_model_pca_train_score = lr_model_pca.score(X_pca_train, y_pca_train)
 # LogisticRegression using PCA Scaled x and y axis data
 lr_model_pca_scaled = LogisticRegression()
 lr_model_pca_scaled.fit(X_scaled_pca_train, y_scaled_pca_train)
 lr_model_pca_scaled_score = lr_model_pca_scaled.score(X_scaled_pca_test, y_scaled_pca_test)
+lr_model_pca_scaled_train_score = lr_model_pca_scaled.score(X_scaled_pca_train, y_scaled_pca_train)
 print(f"PCA: Without scaling columns {pca_object_columns} and With scaling columns {pca_scaled_object_columns}")
 print(f"PCA: Without scaling score {lr_model_pca_score} and With scaling score {lr_model_pca_scaled_score}")
+print(f"PCA: Without scaling Train score {lr_model_pca_train_score} and With scaling Train score {lr_model_pca_scaled_train_score}")
